@@ -69,13 +69,10 @@ app.get('/top-news', (req, res) => {
         .catch((error) => console.log(error));
 });
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, 'client/build/static')));
+    app.use(express.static(path.join(__dirname, 'client', 'build')));
+
     app.get('/', (req, res) => {
-        res.sendfile(path.join(__dirname, 'client/build/index.html'));
-    });
-} else {
-    app.get('/', (req, res) => {
-        res.sendFile(path.join(__dirname, 'client/public/index.html'));
+        res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
     });
 }
 
