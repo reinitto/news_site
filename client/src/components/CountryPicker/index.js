@@ -37,7 +37,7 @@ export const CountryPicker = () => {
                     <Button
                         key={`${countryCode + i}`}
                         className={`${classes.flagButton} ${
-                            country == countryCode
+                            country === countryCode
                                 ? classes.flagButtonActive
                                 : ''
                         }`}

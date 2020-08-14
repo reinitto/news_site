@@ -5,12 +5,11 @@ export default function CountryProvider({ children }) {
     const [country, setCountry] = useState(null);
     useEffect(() => {
         const getInitCountry = async () => {
-            var endpoint =
-                'http://ip-api.com/json/?fields=status,message,countryCode';
+            var endpoint = 'https://freegeoip.app/json/';
             let res = await fetch(endpoint);
-            let { countryCode } = await res.json();
-            if (countryCode) {
-                setCountry(countryCode.toLowerCase());
+            let { country_code } = await res.json();
+            if (country_code) {
+                setCountry(country_code.toLowerCase());
             } else {
                 setCountry('us');
             }
